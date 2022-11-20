@@ -5,8 +5,6 @@ import RightComponent from './components/RightComponent';
 
 const StyledHome = styled.div`
   width: 100%;
-  background: pink;
-  color :red;
   height: 100vh;
 `
 

@@ -9,4 +9,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 `;
 
-// #374955,#9BAEBC, #E991CD, #B05C97, #05BAF9
+// #374955,#9fafbb, #E991CD, #B05C97, #05BAF9
+
+// for gradient #3D5D74 #3C5D74 #374955

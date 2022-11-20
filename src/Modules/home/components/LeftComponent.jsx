@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import Logo from '../../../assets/Logo.svg'
+import Logo from '../../../assets/Logo.svg';
+import {FaPlus} from 'react-icons/fa';
 
 const StyledLeftComponent = styled.div`
     width: 30%;
-    background-color: #374955;
+    background-image: radial-gradient(circle, #3d5d74, #3d5d74, #3d5d74, #3c5d74, #3c5d74, #3c5b71, #3b5a6f, #3b586c, #3a5466, #395060, #384d5b, #374955);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     float: left;
 `
+
 const ContentContainer = styled.div`
     width: 80%;
     /* background-color: pink; */
@@ -18,6 +20,12 @@ const ContentContainer = styled.div`
     height: 300px;
     color: #FFF;
     letter-spacing: 1px;
+
+    h1 {
+        margin-top: 20px;
+        font-size: 2.4rem;
+        font-weight: 500;
+    }
 
     img {
         /* width: 100px; */
@@ -45,11 +53,10 @@ function LeftComponent() {
     <StyledLeftComponent>
         <ContentContainer>
         <img src={Logo} alt="Logo"/>
-        <h2>CODER IDE</h2>
+        <h1>CODER IDE</h1>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit!</p>
         <button>
-            <i className="fa fa-plus" aria-hidden="true"></i> &nbsp;
-            Create New Environment
+            <FaPlus/> Create New Environment
         </button>
         </ContentContainer>
     </StyledLeftComponent>

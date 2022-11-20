@@ -4,6 +4,7 @@ import HomeModule from "./Modules/home/HomeModule";
 import Playground from "./Modules/playground/Playground";
 import { GlobalStyle } from "./style/Global";
 
+
 function App() {
   return (
     <BrowserRouter>
