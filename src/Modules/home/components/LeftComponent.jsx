@@ -9,7 +9,7 @@ const StyledLeftComponent = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    float: left;
 `
 const ContentContainer = styled.div`
     width: 80%;
@@ -30,10 +30,11 @@ const ContentContainer = styled.div`
         background-color: #05BAF9;
         margin: 1em;
         padding: .6em 1em;
-        border-radius: 5px;
+        border-radius: 10px;
         border: none;
         color: #333;
         font-weight: 500;
+        cursor: pointer;
         /* border: 1px solid #FFF; */
     }
 `
