@@ -5,7 +5,8 @@ import Icon from '../../../assets/Logo.svg'
 
 const StyledRightComponent = styled.div`
     width: 70%;
-    background-color: #b3e5fc;
+    background-color: #e1f5fe
+;
     height: 100vh;
     float: right;
     padding: 15px 30px;
