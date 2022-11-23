@@ -53,7 +53,7 @@ function LeftComponent() {
     <StyledLeftComponent>
         <ContentContainer>
         <img src={Logo} alt="Logo"/>
-        <h1>CODER IDE</h1>
+        <h1>Coder IDE</h1>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit!</p>
         <button>
             <FaPlus/> Create New Environment
