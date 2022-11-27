@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import {NewEnvironment, NewFile, NewFolder} from './modal-types/ExportModelTypes'
+import {NewEnvironment, NewFile, NewFolder} from './modal-types/ExportModelTypes';
 
 const ModalContainer = styled.div`
     background: #9fafbb3e;
     position: fixed;
+    display: fixed;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100%;

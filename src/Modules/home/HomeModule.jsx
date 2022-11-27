@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import LeftComponent from './components/LeftComponent';
 import RightComponent from './components/RightComponent';
 import Modal from '../../shared-components/Modal';
+import {ModelContext} from '../../shared-components/contex/ModelContex';
 
 const StyledHome = styled.div`
   width: 100%;
@@ -10,7 +11,7 @@ const StyledHome = styled.div`
 `
 
 function HomeModule() {
-  const isModelOpened = true;
+  const {isModelOpened} = useContext(ModelContext);
   return (
     <StyledHome>
       <LeftComponent/>

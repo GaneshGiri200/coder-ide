@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import Logo from '../../../assets/Logo.svg';
 import {FaPlus} from 'react-icons/fa';
+import { ModelContext } from '../../../shared-components/contex/ModelContex';
 
 const StyledLeftComponent = styled.div`
     width: 30%;
@@ -49,13 +50,14 @@ const ContentContainer = styled.div`
 
 
 function LeftComponent() {
+    const {setIsModelOpened} = useContext(ModelContext);
   return (
     <StyledLeftComponent>
         <ContentContainer>
         <img src={Logo} alt="Logo"/>
         <h1>Coder IDE</h1>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit!</p>
-        <button>
+        <button onClick={() => {setIsModelOpened(true)}}>
             <FaPlus/> Create New Environment
         </button>
         </ContentContainer>

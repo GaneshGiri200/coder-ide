@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import {FaPlus, FaEdit, FaTrashAlt} from 'react-icons/fa';
-import Icon from '../../../assets/Logo.svg'
+import Icon from '../../../assets/Logo.svg';
+import { ModelContext } from '../../../shared-components/contex/ModelContex';
 
 const StyledRightComponent = styled.div`
     width: 70%;
@@ -84,11 +85,13 @@ const FolderLayout = styled.div`
 `
 
 function RightComponent() {
+  const {setIsModelOpened} = useContext(ModelContext);
+
   return (
     <StyledRightComponent>
       <Heading>
         <font>My <b>Environment</b></font>
-        <button><FaPlus/>New Folder</button>
+        <button onClick={() => setIsModelOpened(true)}><FaPlus/>New Folder</button>
       </Heading>
 
       <FolderDiv>
@@ -104,7 +107,9 @@ function RightComponent() {
               <div className="accordion-body" style={{padding: '10px 5px 5px'}} >
                 <FolderLayout>
                   <div className='folder-operation-head'>
-                    <button><FaEdit/>Edit Folder</button> <button><FaTrashAlt/> Delete folder</button> <button><FaPlus/> New File</button>
+                    <button onClick={() => setIsModelOpened(true)}><FaEdit/>Edit Folder</button>
+                    <button><FaTrashAlt/> Delete folder</button>
+                    <button onClick={() => setIsModelOpened(true)}><FaPlus/> New File</button>
                   </div>
                   <div className='folder-file-div'>
                     <div className="row">
@@ -119,7 +124,7 @@ function RightComponent() {
                                 <div className="file-heading">
                                   <span><b>File Name</b></span>
                                   <div>
-                                    <FaEdit/> &nbsp;
+                                    <FaEdit onClick={() => setIsModelOpened(true)} /> &nbsp;
                                     <FaTrashAlt/>
                                   </div>
                                 </div>
@@ -153,7 +158,9 @@ function RightComponent() {
               <div className="accordion-body" style={{padding: '10px 5px 5px'}} >
                 <FolderLayout>
                   <div className='folder-operation-head'>
-                    <button><FaEdit/>Edit Folder</button> <button><FaTrashAlt/> Delete folder</button> <button><FaPlus/> New File</button>
+                    <button onClick={() => setIsModelOpened(true)}><FaEdit/>Edit Folder</button>
+                    <button><FaTrashAlt/> Delete folder</button>
+                    <button onClick={() => setIsModelOpened(true)}><FaPlus/> New File</button>
                   </div>
                   <div className='folder-file-div'>
                     <div className="row">
@@ -168,7 +175,7 @@ function RightComponent() {
                                 <div className="file-heading">
                                   <span><b>File Name</b></span>
                                   <div>
-                                    <FaEdit/> &nbsp;
+                                    <FaEdit onClick={() => setIsModelOpened(true)} /> &nbsp;
                                     <FaTrashAlt/>
                                   </div>
                                 </div>
@@ -202,7 +209,9 @@ function RightComponent() {
               <div className="accordion-body" style={{padding: '10px 5px 5px'}} >
                 <FolderLayout>
                   <div className='folder-operation-head'>
-                    <button><FaEdit/>Edit Folder</button> <button><FaTrashAlt/> Delete folder</button> <button><FaPlus/> New File</button>
+                    <button onClick={() => setIsModelOpened(true)}><FaEdit/>Edit Folder</button>
+                    <button><FaTrashAlt/> Delete folder</button>
+                    <button onClick={() => setIsModelOpened(true)}><FaPlus/> New File</button>
                   </div>
                   <div className='folder-file-div'>
                     <div className="row">
@@ -217,7 +226,7 @@ function RightComponent() {
                                 <div className="file-heading">
                                   <span><b>File Name</b></span>
                                   <div>
-                                    <FaEdit/> &nbsp;
+                                    <FaEdit onClick={() => setIsModelOpened(true)} /> &nbsp;
                                     <FaTrashAlt/>
                                   </div>
                                 </div>
