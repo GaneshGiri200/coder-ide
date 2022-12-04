@@ -50,14 +50,14 @@ const ContentContainer = styled.div`
 
 
 function LeftComponent() {
-    const {setIsModelOpened} = useContext(ModelContext);
+    const {setModel} = useContext(ModelContext);
   return (
     <StyledLeftComponent>
         <ContentContainer>
         <img src={Logo} alt="Logo"/>
         <h1>Coder IDE</h1>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit!</p>
-        <button onClick={() => {setIsModelOpened(true)}}>
+        <button onClick={() => {setModel(true, 1)}}>
             <FaPlus/> Create New Environment
         </button>
         </ContentContainer>

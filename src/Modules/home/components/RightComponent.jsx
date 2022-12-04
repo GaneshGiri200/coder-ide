@@ -52,7 +52,7 @@ const FolderLayout = styled.div`
     padding: 5px;
     margin-top: 15px;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px 0.4px #666;
+    box-shadow: 0 0 3px #666;
     background-color: #fff;
   }
 
@@ -85,13 +85,13 @@ const FolderLayout = styled.div`
 `
 
 function RightComponent() {
-  const {setIsModelOpened} = useContext(ModelContext);
+  const {setModel} = useContext(ModelContext);
 
   return (
     <StyledRightComponent>
       <Heading>
-        <font>My <b>Environment</b></font>
-        <button onClick={() => setIsModelOpened(true)}><FaPlus/>New Folder</button>
+        <font>My <b>Environments</b></font>
+        <button onClick={() => setModel(true, 3)}><FaPlus/>New Folder</button>
       </Heading>
 
       <FolderDiv>
@@ -107,9 +107,9 @@ function RightComponent() {
               <div className="accordion-body" style={{padding: '10px 5px 5px'}} >
                 <FolderLayout>
                   <div className='folder-operation-head'>
-                    <button onClick={() => setIsModelOpened(true)}><FaEdit/>Edit Folder</button>
+                    <button onClick={() => setModel(true, 3)}><FaEdit/>Edit Folder</button>
                     <button><FaTrashAlt/> Delete folder</button>
-                    <button onClick={() => setIsModelOpened(true)}><FaPlus/> New File</button>
+                    <button onClick={() => setModel(true, 2)}><FaPlus/> New File</button>
                   </div>
                   <div className='folder-file-div'>
                     <div className="row">
@@ -124,7 +124,7 @@ function RightComponent() {
                                 <div className="file-heading">
                                   <span><b>File Name</b></span>
                                   <div>
-                                    <FaEdit onClick={() => setIsModelOpened(true)} /> &nbsp;
+                                    <FaEdit onClick={() => setModel(true, 2)} /> &nbsp;
                                     <FaTrashAlt/>
                                   </div>
                                 </div>
@@ -144,109 +144,6 @@ function RightComponent() {
           </div>
         </div>
       </FolderDiv>
-
-      <FolderDiv>
-        <div className="accordion">
-          <div className="accordion-item">
-            <h2 className="accordion-header">
-              <button className="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false">
-                Folder Name
-              </button>
-            </h2>
-            
-            <div id="flush-collapseTwo" className="accordion-collapse collapse">
-              <div className="accordion-body" style={{padding: '10px 5px 5px'}} >
-                <FolderLayout>
-                  <div className='folder-operation-head'>
-                    <button onClick={() => setIsModelOpened(true)}><FaEdit/>Edit Folder</button>
-                    <button><FaTrashAlt/> Delete folder</button>
-                    <button onClick={() => setIsModelOpened(true)}><FaPlus/> New File</button>
-                  </div>
-                  <div className='folder-file-div'>
-                    <div className="row">
-                      {
-                        Array.from({length : 5}).map(()=> (
-                          <div className='col-md-4'>
-                            <div className="file-card">
-                              <div className="file-icon-div">
-                                <img src={Icon} alt="File Icon" className="file-icon" />
-                              </div>
-                              <div className="file-content-div">
-                                <div className="file-heading">
-                                  <span><b>File Name</b></span>
-                                  <div>
-                                    <FaEdit onClick={() => setIsModelOpened(true)} /> &nbsp;
-                                    <FaTrashAlt/>
-                                  </div>
-                                </div>
-                                <div>
-                                  <span><b>Language:</b> JavaScript </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))
-                      }
-                    </div>
-                  </div>
-                </FolderLayout>
-              </div>
-            </div>
-          </div>
-        </div>
-      </FolderDiv>
-
-      <FolderDiv>
-        <div className="accordion">
-          <div className="accordion-item">
-            <h2 className="accordion-header">
-              <button className="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false">
-                Folder Name
-              </button>
-            </h2>
-            
-            <div id="flush-collapseThree" className="accordion-collapse collapse">
-              <div className="accordion-body" style={{padding: '10px 5px 5px'}} >
-                <FolderLayout>
-                  <div className='folder-operation-head'>
-                    <button onClick={() => setIsModelOpened(true)}><FaEdit/>Edit Folder</button>
-                    <button><FaTrashAlt/> Delete folder</button>
-                    <button onClick={() => setIsModelOpened(true)}><FaPlus/> New File</button>
-                  </div>
-                  <div className='folder-file-div'>
-                    <div className="row">
-                      {
-                        Array.from({length : 5}).map(()=> (
-                          <div className='col-md-4'>
-                            <div className="file-card">
-                              <div className="file-icon-div">
-                                <img src={Icon} alt="File Icon" className="file-icon" />
-                              </div>
-                              <div className="file-content-div">
-                                <div className="file-heading">
-                                  <span><b>File Name</b></span>
-                                  <div>
-                                    <FaEdit onClick={() => setIsModelOpened(true)} /> &nbsp;
-                                    <FaTrashAlt/>
-                                  </div>
-                                </div>
-                                <div>
-                                  <span><b>Language:</b> JavaScript </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))
-                      }
-                    </div>
-                  </div>
-                </FolderLayout>
-              </div>
-            </div>
-          </div>
-        </div>
-      </FolderDiv>
-
     </StyledRightComponent>
   )
 }
