@@ -11,6 +11,13 @@ const StyledRightComponent = styled.div`
     float: right;
     padding: 15px 30px;
     overflow-y: scroll;
+
+    .general-btn{
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+    background: #ABD8FE;
+  }
 `
 
 const Heading = styled.div`
@@ -91,7 +98,7 @@ function RightComponent() {
     <StyledRightComponent>
       <Heading>
         <font>My <b>Environments</b></font>
-        <button onClick={() => setModel(true, 3)}><FaPlus/>New Folder</button>
+        <button className='btn general-btn' onClick={() => setModel(true, 3)}><FaPlus/>New Folder</button>
       </Heading>
 
       <FolderDiv>
@@ -107,9 +114,9 @@ function RightComponent() {
               <div className="accordion-body" style={{padding: '10px 5px 5px'}} >
                 <FolderLayout>
                   <div className='folder-operation-head'>
-                    <button onClick={() => setModel(true, 3)}><FaEdit/>Edit Folder</button>
-                    <button><FaTrashAlt/> Delete folder</button>
-                    <button onClick={() => setModel(true, 2)}><FaPlus/> New File</button>
+                    <button className='btn general-btn' onClick={() => setModel(true, 3)}><FaEdit/>Edit Folder</button>
+                    <button className='btn general-btn'><FaTrashAlt/> Delete folder</button>
+                    <button className='btn general-btn' onClick={() => setModel(true, 2)}><FaPlus/> New File</button>
                   </div>
                   <div className='folder-file-div'>
                     <div className="row">

@@ -4,7 +4,7 @@ import {NewEnvironment, NewFile, NewFolder} from './modal-types/ExportModelTypes
 import { ModelContext } from './contex/ModelContex';
 
 const ModalContainer = styled.div`
-    background: #9fafbb3e;
+    background: #3b3b3ba3;
     position: fixed;
     display: fixed;
     align-items: center;
@@ -16,9 +16,9 @@ const ModalContainer = styled.div`
 `
 
 const ModalBody = styled.div`
-    background: red;
-    height: 300px;
-    width: 500px;
+    background: #e8ecee;
+    border-radius: 5px;
+    padding: 30px;
 `
 
 function Modal() {
