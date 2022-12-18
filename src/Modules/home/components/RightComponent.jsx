@@ -116,7 +116,7 @@ function RightComponent() {
                   <div className='folder-operation-head'>
                     <button className='btn general-btn' onClick={() => setModel(true, 3)}><FaEdit/>Edit Folder</button>
                     <button className='btn general-btn'><FaTrashAlt/> Delete folder</button>
-                    <button className='btn general-btn' onClick={() => setModel(true, 2)}><FaPlus/> New File</button>
+                    <button className='btn general-btn' onClick={() => setModel(true, 2)}><FaPlus/>Add New File</button>
                   </div>
                   <div className='folder-file-div'>
                     <div className="row">

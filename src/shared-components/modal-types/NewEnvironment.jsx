@@ -1,23 +1,45 @@
 import React, {useContext} from 'react';
 import { ModelContext } from '../contex/ModelContex';
+import {IoMdClose} from 'react-icons/io';
 
 
 function NewEnvironment() {
   const {setIsModelOpened} = useContext(ModelContext);
   return (
     <>
-        <h4>Create Environement by creating folder and file </h4>
-        <button onClick={()=> {setIsModelOpened(false)}}>Close</button>
-        <label>Enter Folder Name</label>
-        <input type="text" />
-        <select name="" id="">
-          <option value="Java"></option>
-          <option value="C++"></option>
-          <option value="JavaScript"></option>
-          <option value="Python"></option>
-        </select>
-        <label>Enter File Name</label>
-        <input type="text" />
+        <h4 align='center' className='mb-4'>Create Environment</h4>
+        <button className="popup-close-btn" onClick={()=> {setIsModelOpened(false)}}><IoMdClose/></button>
+        <div className="row mb-3">
+          <div className='col-sm-4'>
+            <label className="form-label">Enter Folder Name</label>
+          </div>
+          <div className="col-sm-8">
+            <input type="text" className="form-control"/>
+          </div>
+        </div>
+        <div className="row mb-3">
+          <div className='col-sm-4'>
+            <label className="form-label">Enter File Name</label>
+          </div>
+          <div className="col-sm-8">
+            <input type="text" className="form-control"/>
+          </div>
+        </div>
+        <div className="row mb-3">
+          <div className='col-sm-6'>
+            <div className="mb-3">
+              <select class="form-select">
+                <option value="Java">Java</option>
+                <option value="C++">C++</option>
+                <option value="Javascript">JavaScript</option>
+                <option value="Python">Python</option>
+              </select>
+            </div>
+          </div>
+          <div className="col-sm-6">
+            <button className='popup-submit-btn'>Create</button>
+          </div>
+        </div>
     </>
   )
 }

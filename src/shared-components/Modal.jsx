@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import styled from 'styled-components';
-import {NewEnvironment, NewFile, NewFolder} from './modal-types/ExportModelTypes';
+import {NewEnvironment, NewFile, NewFolder, EditFile} from './modal-types/ExportModelTypes';
 import { ModelContext } from './contex/ModelContex';
 
 const ModalContainer = styled.div`
@@ -18,21 +18,24 @@ const ModalContainer = styled.div`
 const ModalBody = styled.div`
     background: #e8ecee;
     border-radius: 5px;
-    padding: 30px;
+    padding: 30px 30px 20px;
+    width: 600px;
+    position: relative;
 `
 
 function Modal() {
 
     const {modelType} = useContext(ModelContext);
-  return (
-    <ModalContainer>
-        <ModalBody>
-            {modelType === 1 && <NewEnvironment/>}
-            {modelType === 2 && <NewFile/>}
-            {modelType === 3 && <NewFolder/>}
-        </ModalBody>
-    </ModalContainer>
-  )
+    return (
+        <ModalContainer>
+            <ModalBody>
+                {modelType === 1 && <NewEnvironment/>}
+                {modelType === 2 && <NewFile/>}
+                {modelType === 3 && <NewFolder/>}
+                {modelType === 4 && <EditFile/>}
+            </ModalBody>
+        </ModalContainer>
+    )
 }
 
 export default Modal
