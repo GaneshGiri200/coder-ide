@@ -1,13 +1,13 @@
 import React, {useContext} from 'react';
-import { ModelContext } from '../contex/ModelContex';
+import { ModalContext } from '../contex/ModelContex';
 import {IoMdClose} from 'react-icons/io';
 
 function EditFile() {
-  const {setIsModelOpened} = useContext(ModelContext);
+  const {closeModal} = useContext(ModalContext);
   return (
     <>
         <h4 align='center' className='mb-4'>Edit File</h4>
-        <button className="popup-close-btn" onClick={()=> {setIsModelOpened(false)}}><IoMdClose/></button>
+        <button className="popup-close-btn" onClick={()=> closeModal()}><IoMdClose/></button>
         <div className="row mb-3">
           <div className='col-sm-4'>
             <label className="form-label">Enter File Name</label>

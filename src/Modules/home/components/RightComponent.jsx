@@ -2,7 +2,8 @@ import React, {useContext} from 'react';
 import styled from 'styled-components';
 import {FaPlus, FaEdit, FaTrashAlt} from 'react-icons/fa';
 import Icon from '../../../assets/Logo.svg';
-import { ModelContext } from '../../../shared-components/contex/ModelContex';
+import { ModalContext } from '../../../shared-components/contex/ModelContex';
+import { EnvironmentContext } from '../../../shared-components/contex/EnvironemntContext';
 
 const StyledRightComponent = styled.div`
     width: 70%;
@@ -66,6 +67,7 @@ const FolderLayout = styled.div`
   .file-icon {
     width: 100%;
     height: 100%;
+    color: red;
   }
 
   .file-icon-div {
@@ -89,54 +91,88 @@ const FolderLayout = styled.div`
   .row {
     margin: 0;
   }
+
+  .file-option-icon {
+    cursor: pointer;
+  }
 `
 
 function RightComponent() {
-  const {setModel} = useContext(ModelContext);
+  const { openModal } = useContext(ModalContext);
+  const {folders, deleteFolder} = useContext(EnvironmentContext);
 
   return (
     <StyledRightComponent>
       <Heading>
         <font>My <b>Environments</b></font>
-        <button className='btn general-btn' onClick={() => setModel(true, 3)}><FaPlus/>New Folder</button>
+        <button className='btn general-btn' onClick={() =>openModal({  
+            show : true,
+            modalType : 3,
+            identifier: {
+                folderId :"",
+                SCardId: "",
+            }   
+        })}><FaPlus/>New Folder</button>
       </Heading>
 
-      <FolderDiv>
+      {folders.map((folder, index) => (
+        <FolderDiv key={folder.id}>
         <div className="accordion">
           <div className="accordion-item">
             <h2 className="accordion-header">
-              <button className="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false">
-                Folder Name
+              <button className="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target={'#folder'+folder.id} aria-expanded="false">
+                {folder.name}
               </button>
             </h2>
             
-            <div id="flush-collapseOne" className="accordion-collapse collapse">
+            <div id={'folder'+folder.id} className="accordion-collapse collapse">
               <div className="accordion-body" style={{padding: '10px 5px 5px'}} >
                 <FolderLayout>
                   <div className='folder-operation-head'>
-                    <button className='btn general-btn' onClick={() => setModel(true, 3)}><FaEdit/>Edit Folder</button>
-                    <button className='btn general-btn'><FaTrashAlt/> Delete folder</button>
-                    <button className='btn general-btn' onClick={() => setModel(true, 2)}><FaPlus/>Add New File</button>
+                    <button className='btn general-btn' onClick={() => openModal({  
+                      show : true,
+                      modalType : 5,
+                      identifier: {
+                          folderId :"",
+                          SCardId: "",
+                      }   
+                  })}><FaEdit/>Edit Folder</button>
+                    <button className='btn general-btn' onClick={() => deleteFolder(folder.id)}><FaTrashAlt/> Delete folder</button>
+                    <button className='btn general-btn' onClick={() => openModal({  
+                      show : true,
+                      modalType : 2,
+                      identifier: {
+                          folderId :"",
+                          SCardId: "",
+                      }   
+                  })}><FaPlus/>Add New File</button>
                   </div>
                   <div className='folder-file-div'>
                     <div className="row">
                       {
-                        Array.from({length : 5}).map(()=> (
-                          <div className='col-md-4'>
+                        folder.file.map((file, index)=> (
+                          <div className='col-md-4' key={file.id}>
                             <div className="file-card">
                               <div className="file-icon-div">
                                 <img src={Icon} alt="File Icon" className="file-icon" />
                               </div>
                               <div className="file-content-div">
                                 <div className="file-heading">
-                                  <span><b>File Name</b></span>
+                                  <span><b>{file.name}</b></span>
                                   <div>
-                                    <FaEdit onClick={() => setModel(true, 2)} /> &nbsp;
-                                    <FaTrashAlt/>
+                                    <FaEdit onClick={() => openModal({  
+                                        show : true,
+                                        modalType : 4,
+                                        identifier: {
+                                            folderId :"",
+                                            SCardId: "",
+                                        }   
+                                    })} className='file-option-icon'/> &nbsp;
+                                    <FaTrashAlt className='file-option-icon'/>
                                   </div>
                                 </div>
                                 <div>
-                                  <span><b>Language:</b> JavaScript </span>
+                                  <span><b>Language:</b> {file.language} </span>
                                 </div>
                               </div>
                             </div>
@@ -151,6 +187,9 @@ function RightComponent() {
           </div>
         </div>
       </FolderDiv>
+      ))}
+
+      
     </StyledRightComponent>
   )
 }

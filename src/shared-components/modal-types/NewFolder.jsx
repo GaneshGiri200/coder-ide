@@ -1,14 +1,14 @@
 import React, {useContext} from 'react';
-import { ModelContext } from '../contex/ModelContex';
+import { ModalContext } from '../contex/ModelContex';
 import {IoMdClose} from 'react-icons/io';
 
 
 function NewFolder() {
-  const {setIsModelOpened} = useContext(ModelContext);
+  const {closeModal} = useContext(ModalContext);
   return (
     <>
         <h4 align='center' className='mb-4'>Create New Folder</h4>
-        <button className="popup-close-btn" onClick={()=> {setIsModelOpened(false)}}><IoMdClose/></button>
+        <button className="popup-close-btn" onClick={()=> closeModal()}><IoMdClose/></button>
         <div className="row mb-3">
           <div className='col-sm-4'>
             <label className="form-label">Enter Folder Name</label>

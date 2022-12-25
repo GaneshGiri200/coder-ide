@@ -1,18 +1,35 @@
 import { createContext, useState } from "react";
 
-export const ModelContext = createContext();
+export const ModalContext = createContext();
 
 export default function ModelProvider({children}){
-  const [isModelOpened, setIsModelOpened] = useState(false);
-  const [modelType, setModelType] = useState(null);
-
-  const setModel = (isModelOpened, type) => {
-    setIsModelOpened(isModelOpened);
-    setModelType(type);
+  const initialModalFields = {
+    show : false,
+    modalType : "",
+    identifiers : {
+        folderId : "",
+        cardId : "",
+    }
   }
-    return(
-        <ModelContext.Provider value={{isModelOpened, modelType, setIsModelOpened, setModel}}>
-            {children}
-        </ModelContext.Provider>
-    )
+
+  const [isOpenModal, setIsOpenModal] = useState({ ...initialModalFields});
+
+  const openModal = (value) => {
+      setIsOpenModal(value)
+  }
+
+  const closeModal = () => {
+      setIsOpenModal({ ...initialModalFields})
+  }
+
+  const ModalFeatures = {
+      isOpenModal: isOpenModal,
+      openModal: openModal,
+      closeModal: closeModal,
+  }
+  return (
+      <ModalContext.Provider value={ModalFeatures}>
+          {children}
+      </ModalContext.Provider>
+  )
 }

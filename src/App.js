@@ -3,12 +3,13 @@ import Error404 from "./Modules/erro404/Error404";
 import HomeModule from "./Modules/home/HomeModule";
 import Environment from "./Modules/environment/Environment";
 import { GlobalStyle } from "./style/Global";
-import ModelProvider from "./shared-components/contex/ModelContex";
-
+import ModalProvider from "./shared-components/contex/ModelContex";
+import EnvironementProvider from "./shared-components/contex/EnvironemntContext";
 
 function App() {
   return (
-    <ModelProvider>
+    <EnvironementProvider>
+      <ModalProvider>
       <BrowserRouter>
         <GlobalStyle/>
         <Routes>
@@ -17,7 +18,8 @@ function App() {
           <Route path="*" element={<Error404/>}/>
         </Routes>
       </BrowserRouter>
-    </ModelProvider>
+    </ModalProvider>
+    </EnvironementProvider>
   );
 }
 
